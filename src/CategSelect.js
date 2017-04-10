@@ -165,11 +165,18 @@ export default class TwoLevelsSelect extends Component {
     let lastIsParent= false;
     let clean=items;
 
-    for (let [ix,f] of items.entries()) {
-      if (lastIsParent && (f.name===f.parentName)) {
-        clean=[...clean.slice(0,ix-1),...clean.slice(ix)];
+    if (items.length > 0) {
+      for (let [ix,f] of items.entries()) {
+        if (lastIsParent && (f.name===f.parentName)) {
+          clean=[...clean.slice(0,ix-1),...clean.slice(ix)];
+        }
+        lastIsParent=(f.name===f.parentName);
       }
-      lastIsParent=(f.name===f.parentName);
+      // Remove last category if its empty
+      if (clean[clean.length -1].name ===
+          clean[clean.length -1].parentName ) {
+        clean = [...clean.slice(0,clean.length -1)];
+      }
     }
     return clean;
   }

@@ -40,7 +40,6 @@ class App extends Component {
                 { id: 13, name: "Snoopy", pid: 3 }
               ];
   let {selected} = this.state;
-  let fbc = true;
     return (
       <div className="mw9 center ph3-ns">
       <div className="fl w-100 w-third-ns pa2">
@@ -64,7 +63,7 @@ class App extends Component {
       
       </div>
       <div className="fl w-100 w-third-ns pa2 tc">
-          <CategSelect parents={parents} childs={childs} filterByChild={fbc}
+          <CategSelect parents={parents} childs={childs} 
                            setValue={(val) => { this.setValue(val);} }/>
       </div>
       <div className="fl w-100 w-third-ns pa2">
